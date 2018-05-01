@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="col">
+            <form method= 'POST' class="form-signin" style = "width:500px ; margin:auto">
+              <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="btn btn-lg btn-primary" value="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

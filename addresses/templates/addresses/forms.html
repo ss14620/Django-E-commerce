@@ -1,0 +1,16 @@
+<form method= 'POST' class="form-signin"  action="{% if action_url %}{{ action_url }}{% else %}{% url 'login'%}{% endif %}" style = "width:500px ; margin:auto">
+  {% csrf_token %}
+  <br>
+  <br>
+  {% if next_url %}
+  <input type="hidden" name="next" value="{{ next_url }}">
+  {% endif %}
+
+  {% if address_type %}
+  <input type="hidden" name="address_type" value="{{ address_type }}">
+  {% endif %}
+
+  {{ form.as_p }}
+  <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+
+</form>
