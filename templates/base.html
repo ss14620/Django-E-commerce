@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Base Page</title>
     {% include 'base/css.html'%}
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   </head>
   <body class="text-center" background-color ="grey">
@@ -43,11 +42,11 @@
     {% endif %}
 
     <li class="nav-item ">
-      <a class="nav-link " href={% url 'cart:home'%}>{{ request.session.cart_items }} <i class="fas fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
+      <a class="nav-link " href={% url 'cart:home'%}>{{ request.session.cart_items }} <i class="fa fa-shopping-cart"></i><span class="sr-only">(current)</span></a>
     </li>
-    <form class="form-inline">
+
             {% include 'search/snippets/search-form.html' %}
-    </form>
+    
   </ul>
 </div>
 </nav>

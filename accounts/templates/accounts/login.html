@@ -1,6 +1,27 @@
 {% extends "base.html"%}
 {% load static %}
 {% block content %}
+
+<style>
+
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+.container.buttons{
+  width:250px;
+}
+.buttons .login{
+  float:left;
+}
+
+.buttons .cancel{
+  float:right;
+}
+
+</style>
+
     <!-- Bootstrap core CSS -->
     <!-- <link href={% static "bootstrap.min.css" %} rel="stylesheet">
 
@@ -8,12 +29,25 @@
     <!-- <link href={% static  "signin.css" %} rel="stylesheet"> -->
 
         <form method= 'POST' class="form-signin"  style = "width:500px ; margin:auto">
-          <br>
-          <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="52" height="62">
-          <br>
+              <div class="imgcontainer">
+                <img src="/static/img_avatar2.png" alt="Avatar" class="avatar">
+              </div>
+
           <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+
           {% csrf_token %}
           {{ form.as_p }}
-          <button class="btn btn-lg btn-primary" type="submit">Login</button>
+          <div class="container">
+            <label>
+              <input class="checkbox" type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+          </div>
+
+          <div class="container buttons">
+            <button class="btn btn-lg btn-primary login" type="submit">Login</button>
+            <button class="btn btn-lg btn-danger cancel" type="submit">Cancel</button>
+          </div>
+
+
         </form>
 {% endblock %}

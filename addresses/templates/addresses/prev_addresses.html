@@ -1,3 +1,4 @@
+
 {% if address_qs.exists %}
     <form  action="{{ action_url}}" method="post">
       {% csrf_token %}
@@ -5,10 +6,12 @@
       <input type="hidden" name="next" value="{{ next_url }}">
       {% endif %}
       {% for address in address_qs %}
+      <div>
         <label for ='address - {{ address.id }}'>
           <input id ='address - {{ address.id }}' type = 'radio' name ='shipping_address' value = '{{ address.id }}'/>
       {{ address.address_line_1}}</br>
         </label>
+      </div>
       {% endfor %}
         <button type="submit" class ="btn btn-success">Use Address</button>
     </form>

@@ -21,6 +21,7 @@ from . import settings
 from accounts.views import register_page,login_page,user_logout,login,guest_register_view
 from django.conf.urls.static import static
 from products import views
+from billing.views import payment_method_view
 from addresses.views import checkout_address_create_view,checkout_address_reuse_view
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +32,7 @@ urlpatterns = [
     url(r'^checkout/address/create/$',checkout_address_create_view,name='checkout_address_create'),
     url(r'^checkout/address/resue/$',checkout_address_reuse_view,name='checkout_address_reuse'),
     url(r'^logout/',user_logout,name ='logout'),
+    url(r'^billing/payment-method/$',payment_method_view,name ='billing-payment-method'),
     url(r'^register/',register_page,name ='register'),
     url(r'^cart/',include("carts.urls",namespace ='cart')),
     url(r'^products/',include("products.urls",namespace ='products')),
